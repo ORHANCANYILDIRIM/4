@@ -25,12 +25,32 @@
     <div class="description">
         <span>💖😊</span>
     </div>
-    <div class="button">
-        <button class="botones">
-            <a href="flower.html" style="color: #fff;">SEN BENİM İÇİN ÇOK DEĞERLİSİN </a>
+   <div class="button">
+        <button class="botones" onclick="playAndRedirect()">
+            SEN BENİM İÇİN ÇOK DEĞERLİSİN
         </button>
     </div>
 
+    <!-- Şarkı -->
+    <audio id="audio" src="Assets/Daft Punk - Veridis Quo.mp3"></audio>
+
+    <script>
+        function playAndRedirect() {
+            // Şarkıyı çal
+            var audio = document.getElementById("audio");
+            audio.play()
+                .then(() => {
+                    // Eğer oynatma başarılıysa, yönlendir
+                    setTimeout(() => {
+                        window.location.href = "flower.html";
+                    }, 300);
+                })
+                .catch(error => {
+                    console.error("Audio oynatılamadı:", error);
+                    alert("Şarkı çalınamadı! Lütfen kontrol edin.");
+                });
+        }
+    </script>
 </body>
 
 </html>
