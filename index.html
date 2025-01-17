@@ -26,27 +26,11 @@
         <span>💖😊</span>
     </div>
     <div class="button">
-        <button class="botones" onclick="playAndRedirect()">
-            SEN BENİM İÇİN ÇOK DEĞERLİSİN
+        <button class="botones">
+            <a href="flower.html" style="color: #fff;">SEN BENİM İÇİN ÇOK DEĞERLİSİN </a>
         </button>
     </div>
 
-    <!-- Şarkı için gizli bir audio elementi -->
-    <audio id="audio" src="https://github.com/ORHANCANYILDIRIM/4/blob/main/Assets/Daft%20Punk%20-%20Veridis%20Quo.mp3"></audio>
-
-    <script>
-        function playAndRedirect() {
-            // Şarkıyı çalma
-            var audio = document.getElementById('audio');
-            audio.play();
-
-            // Sayfayı yönlendirme (300ms gecikmeyle)
-            setTimeout(() => {
-                window.location.href = 'flower.html';
-            }, 300);
-        }
-    </script>
 </body>
 
 </html>
-
