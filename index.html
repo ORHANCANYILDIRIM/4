@@ -11,44 +11,47 @@
 </head>
 
 <body>
-    <div class="greetings">
-        <span>A</span>
-        <span>B</span>
-        <span>L</span>
-        <span>A</span>
-        <span>C</span>
-        <span>I</span>
-        <span>Ğ</span>
-        <span>I</span>
-        <span>M</span>
-    </div>
-    <div class="description">
-        <span>💖😊</span>
-    </div>
-   <div class="button">
-        <button class="botones" onclick="playAndRedirect()">
-            SEN BENİM İÇİN ÇOK DEĞERLİSİN
-        </button>
-    </div>
+    <!-- Şarkı çalma bölümü -->
+    <audio id="audio" src="Assets/Daft Punk - Veridis Quo.mp3" autoplay loop></audio>
 
-    <!-- Şarkı -->
-    <audio id="audio" src="Assets/Daft Punk - Veridis Quo.mp3"></audio>
+    <!-- Ana içerik -->
+    <div id="main-content">
+        <!-- İlk sayfa -->
+        <div id="page-1" class="page">
+            <div class="greetings">
+                <span>A</span>
+                <span>B</span>
+                <span>L</span>
+                <span>A</span>
+                <span>C</span>
+                <span>I</span>
+                <span>Ğ</span>
+                <span>I</span>
+                <span>M</span>
+            </div>
+            <div class="description">
+                <span>💖😊</span>
+            </div>
+            <div class="button">
+                <button class="botones" onclick="loadPage('flower.html')">
+                    SEN BENİM İÇİN ÇOK DEĞERLİSİN
+                </button>
+            </div>
+        </div>
+
+        <!-- iframe ile yüklenecek içerik -->
+        <iframe id="content-frame" style="display:none; width:100%; height:100vh; border:none;"></iframe>
+    </div>
 
     <script>
-        function playAndRedirect() {
-            // Şarkıyı çal
-            var audio = document.getElementById("audio");
-            audio.play()
-                .then(() => {
-                    // Eğer oynatma başarılıysa, yönlendir
-                    setTimeout(() => {
-                        window.location.href = "flower.html";
-                    }, 300);
-                })
-                .catch(error => {
-                    console.error("Audio oynatılamadı:", error);
-                    alert("Şarkı çalınamadı! Lütfen kontrol edin.");
-                });
+        function loadPage(url) {
+            // iframe'e içerik yükle
+            var iframe = document.getElementById("content-frame");
+            iframe.src = url;
+            iframe.style.display = "block";
+
+            // Ana içerik gizlenir
+            document.getElementById("main-content").style.display = "none";
         }
     </script>
 </body>
